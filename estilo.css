@@ -104,6 +104,21 @@ footer {
   .galeria-dispersa {
     height: 900px;
   }
+  .coração-com-cronometro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+#cronometro {
+  font-size: 20px;
+  color: #b30059;
+  font-weight: bold;
+  font-family: 'Segoe UI', sans-serif;
+}
+
 
   .galeria-dispersa img {
     width: 100px;
