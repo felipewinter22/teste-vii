@@ -4,6 +4,33 @@
   <meta charset="UTF-8">
   <title>Você é o Amor da Minha Vida 💖</title>
   <link rel="stylesheet" href="estilo.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    #cronometro {
+      font-size: 26px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      background: linear-gradient(to right, #b30059, #ff69b4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 1px 1px 3px rgba(255, 105, 180, 0.3);
+      animation: fadeIn 2s ease-in;
+    }
+
+    .coração-com-cronometro {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 30px 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -22,13 +49,11 @@
       momentos lindos ao seu lado. Obrigado por ser exatamente quem você é.
     </div>
 
-    <!-- Coração com cronômetro -->
     <div class="coração-com-cronometro">
       <div class="coração">❤️</div>
       <div id="cronometro"></div>
     </div>
 
-    <!-- Galeria com 10 fotos espalhadas -->
     <div class="galeria-dispersa">
       <img src="foto1.jpg" style="top: 10px; left: 30px; transform: rotate(-5deg);">
       <img src="foto2.jpg" style="top: 90px; left: 200px; transform: rotate(8deg);">
