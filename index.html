@@ -30,11 +30,66 @@
       from { opacity: 0; transform: translateY(-10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* Tela de login */
+    #login-overlay {
+      position: fixed;
+      inset: 0;
+      background: #fff0f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    #login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    #login-box input {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+      width: 200px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    #login-box button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #b30059;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #login-box button:hover {
+      background-color: #8b0044;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Para Você Meu Dabis💘</h1>
+  <div id="login-overlay">
+    <div id="login-box">
+      <h2>Login</h2>
+      <input type="text" id="usuario" placeholder="Usuário">
+      <input type="password" id="senha" placeholder="Senha">
+      <button onclick="verificarLogin()">Entrar</button>
+      <p id="erro" style="color:red;"></p>
+    </div>
+  </div>
+
+  <div class="container" style="display: none;" id="conteudo">
+    <h1>Para Você 💘</h1>
 
     <div class="frase">
       Só você sabe o quanto é importante pra mim!<br>
@@ -99,6 +154,19 @@
 
     setInterval(atualizarCronometro, 1000);
     atualizarCronometro();
+
+    function verificarLogin() {
+      const usuario = document.getElementById('usuario').value;
+      const senha = document.getElementById('senha').value;
+      const erro = document.getElementById('erro');
+
+      if (usuario === 'dabis' && senha === '123') {
+        document.getElementById('login-overlay').style.display = 'none';
+        document.getElementById('conteudo').style.display = 'block';
+      } else {
+        erro.textContent = 'Usuário ou senha incorretos.';
+      }
+    }
   </script>
 </body>
 </html>
