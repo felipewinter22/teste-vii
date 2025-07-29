@@ -75,6 +75,54 @@
     #login-box button:hover {
       background-color: #8b0044;
     }
+
+    /* Caixa da pergunta */
+    #pergunta-namoro {
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 240, 245, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    #caixa-namoro {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      position: relative;
+      width: 300px;
+      height: 180px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    #caixa-namoro p {
+      font-size: 20px;
+      color: #b30059;
+      margin-bottom: 20px;
+    }
+
+    #caixa-namoro button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #btn-sim {
+      background-color: #ff69b4;
+      color: white;
+    }
+
+    #btn-nao {
+      background-color: #ccc;
+      color: #333;
+    }
   </style>
 </head>
 <body>
@@ -125,6 +173,15 @@
     <footer>Com amor, Felipe 💌</footer>
   </div>
 
+  <!-- Caixa de pergunta: quer me namorar -->
+  <div id="pergunta-namoro">
+    <div id="caixa-namoro">
+      <p>Quer me namorar pra sempre? 💞</p>
+      <button id="btn-sim">Sim 💘</button>
+      <button id="btn-nao">Não 🙈</button>
+    </div>
+  </div>
+
   <script>
     function atualizarCronometro() {
       const inicio = new Date("2022-11-13T00:00:00");
@@ -163,10 +220,32 @@
       if (usuario === 'dabis' && senha === '123') {
         document.getElementById('login-overlay').style.display = 'none';
         document.getElementById('conteudo').style.display = 'block';
+        document.getElementById('pergunta-namoro').style.display = 'flex';
       } else {
         erro.textContent = 'Usuário ou senha incorretos.';
       }
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const btnNao = document.getElementById('btn-nao');
+      const btnSim = document.getElementById('btn-sim');
+
+      btnSim.addEventListener('click', () => {
+        alert('Eu sabia que você ia dizer sim! 😍');
+        document.getElementById('pergunta-namoro').style.display = 'none';
+      });
+
+      btnNao.addEventListener('mouseover', () => {
+        const caixa = document.getElementById('caixa-namoro');
+        const maxX = caixa.clientWidth - btnNao.offsetWidth;
+        const maxY = caixa.clientHeight - btnNao.offsetHeight;
+        const randX = Math.floor(Math.random() * maxX);
+        const randY = Math.floor(Math.random() * maxY);
+        btnNao.style.position = 'absolute';
+        btnNao.style.left = `${randX}px`;
+        btnNao.style.top = `${randY}px`;
+      });
+    });
   </script>
 </body>
 </html>
